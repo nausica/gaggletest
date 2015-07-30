@@ -1,0 +1,251 @@
+
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+@orange:                  #F26722;
+@blue:                    #263692;
+@gray:                    #666666;
+@gray-light:              #eeeeee;
+@white:                   #fff;
+
+@text-color:              #000;
+@body-bg:                 @white;
+@nav-link-color:          @white;
+
+//== Fonts
+@font-family-base:        "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-size-base:          14px;
+@font-size-menu:          20px;
+@line-height-base:        1.428571429; // 20/14
+
+@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
+@headings-font-weight:    300;
+@base-font-weight:        300;
+
+// Small screen
+@screen-sm:                  768px;
+@container-sm:               750px;
+
+
+
+  //
+  // Reset
+  // --------------------------------------------------
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed,
+  figure, figcaption, footer, header, hgroup,
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure,
+  footer, header, hgroup, menu, nav, section {
+    display: block;
+  }
+  ol, ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  //
+  // General
+  // --------------------------------------------------
+  body {
+    font-family: @font-family-base;
+    font-size: @font-size-base;
+    font-weight: @base-font-weight;
+    line-height: @line-height-base;
+    color: @text-color;
+    background-color: @body-bg;
+  }
+
+  h2 {
+    font-size: @font-size-h2;
+    font-weight: @headings-font-weight;
+    margin-bottom: 10px;
+  }
+
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  //
+  // Header
+  // --------------------------------------------------
+  #branding {
+    text-align: center;
+    img {
+      max-width: 100%;
+      height: auto !important;
+      margin: 30px 0;
+    }
+  }
+
+  #navigation {
+    text-align: center;
+
+    .container {
+      padding: 0;
+    }
+
+    li, a#menu-toggle {
+      background-color: @blue;
+      padding: 10px 15px;
+      font-size: @font-size-menu;
+      display: block;
+    }
+
+    a#menu-toggle.active {
+        background-color: @orange;
+    }
+
+    a {
+      text-decoration: none;
+      color: @gray-light;
+    }
+
+    .collapse {
+      display: none;
+    }
+
+  }
+
+  //
+  // Content
+  // --------------------------------------------------
+  #banner img {
+    width: 100%;
+  }
+  #banner h2, #content h2 {
+    color: @orange;
+  }
+  #banner p, #content p, #sidebar p {
+    color: @gray;
+    margin: 0 0 20px;
+  }
+
+  // Blue box
+  #news {
+    background-color: @blue;
+    color: @white;
+    overflow: auto;
+    padding: 10px;
+
+    p {
+      color: @white;
+    }
+    a {
+      color: @orange;
+      float: right;
+    }
+  }
+
+
+  //
+  // Footer
+  // --------------------------------------------------
+
+  #footer {
+    bottom: 0;
+    width: 100%;
+    background-color: @gray;
+    color: @gray-light;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+  }
+
+
+  /* desktop css, will inherit styles from mobile */
+  @media (min-width: @screen-sm) {
+    .container {
+      width: @container-sm;
+    }
+
+    #navigation {
+      background-color: @blue;
+      a#menu-toggle {
+        display: none;
+      }
+      li {
+        display: table-cell;
+        width: 1%;
+      }
+      .collapse {
+        display: block;
+      }
+
+    }
+
+    #banner {
+      position: relative;
+
+      .banner-content {
+        //padding: 10px 10px 0;
+        position: absolute;
+        top: 0;
+        width: 33%;
+        height: 100%;
+        opacity: 0.7;
+        background-color: @orange;
+      }
+      p, h2 {
+        color: @white;
+      }
+      h2 {
+        padding: 10px 10px 0 10px;
+      }
+      p {
+        padding: 0 10px;
+      }
+    }
+
+    #content {
+      padding: 10px 10px 0 10px;
+      float: left;
+      width: 60%;
+    }
+
+    #sidebar {
+      //float: right;
+      margin-top: 20px;
+    }
+
+    #main {
+      overflow: auto;
+    }
+
+    #banner {
+      border: 1px solid @gray-light;
+      border-top: none;
+      border-left: none;
+      border-bottom: none;
+      -webkit-box-shadow: 0 6px 6px -2px rgba(0,0,0,.4);
+      -moz-box-shadow: 0 6px 6px -2px rgba(0,0,0,.4);
+      box-shadow: 0 6px 6px -2px rgba(0,0,0,.4);
+    }
+  }
+
